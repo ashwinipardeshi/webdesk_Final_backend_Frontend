@@ -1,0 +1,17 @@
+export interface IProgramMaster {
+    collegeId: number,
+    collegeName: string,
+    programTypeId: number,
+    programTypeName: string,
+    streamId: number,
+    streamName: string,
+    shortName: string,
+    description: string,
+    isActive: boolean,
+    createdBy: number,
+    createdDate: string,
+    updatedBy?: number,
+    updatedDate?: string,
+    id: number,
+    name: string,
+  }

@@ -1,0 +1,127 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorMasterVM
+<div class="modal fade" id="AddVendorMaster">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Create Vendor</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"> NAME</label>
+                                        <div class="col-sm-3">
+                                            <input id="VendorName" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">ADDRESS</label>
+                                        <div class="col-sm-4">
+                                            <textarea id="VendorAddress" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">CONTACT NO.</label>
+                                        <div class="col-sm-3">
+                                            <input id="VendorContactNo" class="form-control">
+                                        </div>
+                                        <label class="col-sm-2 control-label">GST NO.</label>
+                                        <div class="col-sm-4">
+                                            <input id="VendorGstno" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">PAN</label>
+                                        <div class="col-sm-3">
+                                            <input id="VendorPan" class="form-control">
+                                        </div>
+                                        <label class="col-sm-2 control-label">TAN</label>
+                                        <div class="col-sm-4">
+                                            <input id="VendorTan" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">EMAIL ID</label>
+                                        <div class="col-sm-3">
+                                            <input id="VendorEmailId" class="form-control">
+                                        </div>
+                                        <label class="col-sm-2 control-label">WEBSITE</label>
+                                        <div class="col-sm-4">
+                                            <input id="VendorWebsite" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <div id="Msg" class="ModelPopUpSuccess"></div>
+                    <div id="Error" class="ModelPopUpError"></div>
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" id="SubmitVendorMaster" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#SubmitVendorMaster').on('click', function (e) {
+            var data = {
+                Name: $('#AddVendorMaster #VendorName').val(),
+                Address: $('#AddVendorMaster #VendorAddress').val(),
+                ContactNo: $('#AddVendorMaster #VendorContactNo').val(),
+                Pan: $('#AddVendorMaster #VendorPan').val(),
+                Tan: $('#AddVendorMaster #VendorTan').val(),
+                Gstno: $('#AddVendorMaster #VendorGstno').val(),
+                EmailId: $('#AddVendorMaster #VendorEmailId').val(),
+                Website: $('#AddVendorMaster #VendorWebsite').val(),
+                IsActive: true
+            }
+
+            var isAllValid = true;
+            var regexpName = new RegExp(/^[a-zA-Z''-'.(), ]+$/);
+            //if (!regexpName.test($('#AddVendorMaster #BankName').val())) {
+            //    isAllValid = false;
+            //    $('#AddVendorMaster #BankName').addClass("intro");
+            //}
+            //else {
+            //    $('#AddVendorMaster #BankName').removeClass("intro");
+            //}
+
+            if (isAllValid) {
+                debugger
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("VenderMaster", "VendorBill")",
+                    data: data,
+                    dataType: "json",
+                    headers: {
+                        RequestVerificationToken:
+                            $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        if (data.status) {
+                            $('#AddVendorMaster #Msg').show().html("Record Submitted Successfully!");
+                            $('#AddVendorMaster #Error').show().html("");
+                        }
+                        else {
+                            $('#AddVendorMaster #Error').show().html("Record Submission Failed!");
+                            $('#AddVendorMaster #Msg').show().html("");
+                        }
+                    },
+                    error: function (error) {
+                        $('#AddVendorMaster #Error').show().html("Record Submission Failed!");
+                        $('#AddVendorMaster #Msg').show().html("");
+                    }
+                })
+            }
+        });
+    });
+</script>

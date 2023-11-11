@@ -1,0 +1,123 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorBanksMasterVM
+<div class="modal fade" id="AddVendorBankMaster">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Create Bank</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-body">                                  
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">NAME</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankName" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-3 control-label">BRANCH NAME</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankBranchName" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">VENDOR NAME</label>
+                                        <div class="col-md-3">
+                                            <select asp-for="VendorMasterId" class="form-control select2" asp-items="ViewBag.VendorMasterId"></select>
+                                            @Html.ValidationMessageFor(model => model.VendorMasterId, "", new { @class = "text-danger" })
+                                        </div>
+                                        <label class="col-sm-3 control-label">ACCOUNT NAME</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankAccountName" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">ACCOUNT TYPE</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankAccountType" class="form-control">
+                                        </div>
+                                        <label class="col-sm-3 control-label">ACCOUNT NO.</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankAccountNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">IFSC</label>
+                                        <div class="col-sm-3">
+                                            <input id="BankIfsc" class="form-control">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <div id="Msg" class="ModelPopUpSuccess"></div>
+                    <div id="Error" class="ModelPopUpError"></div>
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" id="SubmitVendorBankMaster" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#SubmitVendorBankMaster').on('click', function (e) {
+            debugger
+            var data = {
+                Name: $('#AddVendorBankMaster #BankName').val(),
+                BranchName: $('#AddVendorBankMaster #BankBranchName').val(),
+                VendorMasterId: $('#AddVendorBankMaster #VendorMasterId').val(),
+                AccountName: $('#AddVendorBankMaster #BankAccountName').val(),
+                AccountType: $('#AddVendorBankMaster #BankAccountType').val(),
+                AccountNo: $('#AddVendorBankMaster #BankAccountNo').val(),
+                Ifsccode: $('#AddVendorBankMaster #BankIfsc').val(),
+                IsActive: true
+            }
+
+            var isAllValid = true;
+            var regexpName = new RegExp(/^[a-zA-Z''-'.(), ]+$/);
+            if (!regexpName.test($('#AddVendorMaster #BankName').val())) {
+                isAllValid = false;
+                $('#AddVendorMaster #VendorName').addClass("intro");
+            }
+            else {
+                $('#AddVendorMaster #VendorName').removeClass("intro");
+            }
+
+            if (isAllValid) {
+                debugger
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("VendorBankMaster", "VendorBill")",
+                    data: data,
+                    dataType: "json",
+                    headers: {
+                        RequestVerificationToken:
+                            $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        if (data.status) {
+                            $('#AddVendorBankMaster #Msg').show().html("Record Submitted Successfully!");
+                            $('#AddVendorBankMaster #Error').show().html("");
+                        }
+                        else {
+                            $('#AddVendorBankMaster #Error').show().html("Record Submission Failed!");
+                            $('#AddVendorBankMaster #Msg').show().html("");
+                        }
+                    },
+                    error: function (error) {
+                        $('#AddVendorBankMaster #Error').show().html("Record Submission Failed!");
+                        $('#AddVendorBankMaster #Msg').show().html("");
+                    }
+                })
+            }
+        });
+    });
+</script>

@@ -1,0 +1,112 @@
+﻿
+@model VendorMgtMVCApp.ViewModels.VendorMasterVM
+
+
+<section class="content-header">
+    <h1>
+        Create Vendor  
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Create Vendor </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box box-info">
+                <form asp-action="Create" class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="box-body">
+                        @if (ViewBag.Msg != null)
+                        {
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-check"></i> @ViewBag.Msg</h4>
+                            </div>
+                        }
+                        @if (ViewBag.Err != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> @ViewBag.Err</h4>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label asp-for="Name" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <label asp-for="Address" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <textarea asp-for="Address" class="form-control"></textarea>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                       
+                        <div class="form-group">
+                            <label asp-for="ContactNo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="ContactNo" class="form-control" />
+                                <span asp-validation-for="ContactNo" class="text-danger"></span>
+                            </div>
+                            <label asp-for="Gstno" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Gstno" class="form-control" />
+                                <span asp-validation-for="Gstno" class="text-danger"></span>
+                            </div>
+                           
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Pan" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Pan" class="form-control" />
+                                <span asp-validation-for="Pan" class="text-danger"></span>
+                            </div>
+                            <label asp-for="Tan" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Tan" class="form-control" />
+                                <span asp-validation-for="Tan" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EmailId" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="EmailId" class="form-control" />
+                                <span asp-validation-for="EmailId" class="text-danger"></span>
+                            </div>
+                            <label asp-for="Website" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Website" class="form-control" />
+                                <span asp-validation-for="Website" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                           
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                                    <input asp-for="IsActive" checked="checked" /> @Html.DisplayNameFor(model => model.IsActive)
+                                </div>
+                            </div>
+                        
+                    </div>
+                   <div class="box-footer">
+                        <a asp-action="Index" class="btn btn-success">Back</a>
+                        <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+                        @*<button type="button" class="btn btn-default bg-red" data-toggle="modal" id="modelAdd" data-target="#AddVendorMaster">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>*@
+                    </div>
+             
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+@*<partial name="~/Views/VendorMaster/modelAdd.cshtml" />*@

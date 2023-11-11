@@ -1,0 +1,35 @@
+export interface IOfflineCommunication {
+  studentAdmissionId: number
+  userId: number
+  permanentFlatNo: string
+  permanentBuildingName: string
+  permanentPinCode: number
+  permanentLandMark: string
+  permanentCountryId: number
+  permanentCity: string
+  permanentStateId: number
+  permanentDistrictId: number
+  permanentTalukaId: number
+  correspondenceFlatNo: string
+  correspondenceBuildingName: string
+  correspondencePinCode: number
+  correspondenceLandMark: string
+  correspondenceCountryId: number
+  correspondenceCity: string
+  correspondenceStateId: number
+  correspondenceDistrictId: number
+  correspondenceTalukaId: number
+  localFlatNo: string
+  localBuildingName: string
+  localCountryId: number
+  localCity: string
+  localStateId: number
+  localDistrictId: number
+  localTalukaId: number
+  localPinCode: number
+  localLandMark: string
+  isPermanantCommunication: boolean
+  isCorrespondenceCommunication: boolean
+  isLocalCommunication: boolean
+  isActive: boolean
+}

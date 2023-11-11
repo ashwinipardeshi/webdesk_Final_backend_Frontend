@@ -1,0 +1,95 @@
+﻿@model IEnumerable<VendorMgtMVCApp.ViewModels.VendorBillVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content-header">
+    <h1>
+        Vendor Management
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Vendor Bill Details</li>
+    </ol>
+</section>
+<section class="content">
+     <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="col-xs-3">
+                        <h3 class="box-title">Vendor Bill List</h3>
+                    </div>
+                    <form>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-default bg-yellow" onclick="location.href='@Url.Action("PDFExport", "VendorBill")'"><i class="fa fa-print" aria-hidden="true"></i> PDF Export</button>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-default bg-olive" onclick="location.href='@Url.Action("ExcelExport", "VendorBill")'"> <i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel Export</button>
+                        </div>
+                    </form>
+                    <div class="col-xs-3">
+                        <a asp-action="Create" class="create-corner-btn pull-right" >
+                            <i class='fa fa-plus' aria-hidden='true'></i> Create
+                        </a>                    
+                    </div>
+                </div>
+<div class="box-body">
+     <table id="example1" class="table table-bordered table-striped">
+         <thead>
+         <tr>      
+            <th>
+                @Html.DisplayNameFor(model => model.BillNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InwardNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InwardDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasicBillAmount)
+            </th>
+
+            <th>
+                @Html.DisplayName("Action")
+            </th>       
+         </tr>
+     </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>           
+            <td>
+                @Html.DisplayFor(modelItem => item.BillNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InwardNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InwardDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicBillAmount)
+            </td>
+        
+            <td>
+               <a asp-action="Edit" class="fa fa-pencil" asp-route-id="@item.Id"></a> |
+               <a asp-action="Details" class="fa fa-eye" asp-route-id="@item.Id"></a> |
+               <a asp-action="Delete" class="fa fa-times-circle" asp-route-id="@item.Id"></a>
+            </td>
+           </tr>
+}
+                   </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

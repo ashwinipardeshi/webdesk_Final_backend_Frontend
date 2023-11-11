@@ -1,0 +1,27 @@
+export const commonMastersIds={
+    GENDER:1,
+    CAP_ALLOTMENT:2,
+    REGION:3,
+    TITLE:4,
+    PLACE_OF_BIRTH:5,
+    DEFENCE_TYPE:6,
+    ACADEMIC_CLASS:7,
+    ENTRANCE_TYPE:8,
+    LANGUAGES_KNOWN:9,
+    MARITAL_STATUS:10,
+    NUMBER_OF_SIBLING:11,
+    CHILD_NUMBER:12,
+    LIVING_STATUS:13,
+    EMPLOYED_IN:14,
+    MONTH:15,
+    PERSON_TYPE:16,
+    ACCOUNT_TYPE:17,
+    VEHICLE_TYPE:18,
+    GaurdainRELATION:19,
+    MEDIUM:20,
+    ADMISSIONSTATUS:21
+}
+
+export const CommonMasterByCollegeId={
+    APPLICATION_FOR:1
+}

@@ -1,0 +1,114 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorBillVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Vendor Bill Details
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Vendor Bill Details</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box box-info bank-details-wrapp">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BillNo)
+                        </div>
+                        <div class="col-sm-4">
+                           @Model.BillNo
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Gsttotal)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.Gsttotal
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BillDate)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.BillDate
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.FinalPayableAmount)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.FinalPayableAmount
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Balance)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.Balance
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Advance)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.Advance
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.BasicBillAmount)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.BasicBillAmount
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.AdvanceAmountGiven)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.Advance
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.CreatedBy
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </div>
+                        <div class="col-sm-4">
+                           @Model.CreatedDate
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UpdatedBy)
+                        </div>
+                        <div class="col-sm-4">
+                            @Model.UpdatedBy
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UpdatedDate)
+                        </div>
+                        <div class="col-sm-4">
+                           @Model.UpdatedDate
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <a asp-action="Index" class="btn btn-success">Back</a>
+                    <a asp-action="Edit" class="btn btn-primary pull-right" asp-route-id="@Model.VendorMasterId">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

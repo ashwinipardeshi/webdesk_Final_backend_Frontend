@@ -1,0 +1,18 @@
+export interface IProgramDetailMaster {
+    id: number,
+    programTypeId: number,
+    programTypeName: string,
+    programMasterId: number,
+    programMasterName: string,
+    syllabusPatternMasterId: number,
+    syllabusPatternMasterName: string,
+    duration: string,
+    noOfSem: string,
+    minCredit: string,
+    maxCredit: string,
+    isActive: boolean,
+    createdBy?: string,
+    createdDate?: Date,
+    updatedBy?: string,
+    updatedDate?: Date,
+}

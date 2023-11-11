@@ -1,0 +1,119 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorMasterVM
+<section class="content-header">
+    <h1>
+        Vendor Details
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Vendor Details</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box box-info bank-details-wrapp">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Name) ? "NA" : Model.Name)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Address) ? "NA" : Model.Address)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.ContactNo)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.ContactNo) ? "NA" : Model.ContactNo)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Gstno)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Gstno) ? "NA" : Model.Gstno)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Pan)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Pan) ? "NA" : Model.Pan)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Tan)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Tan) ? "NA" : Model.Tan)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.EmailId)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.EmailId) ? "NA" : Model.EmailId)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Website)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.Website) ? "NA" : Model.Website)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.CreatedBy.ToString()) ? "NA" : Model.CreatedBy)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.CreatedDate.ToString()) ? "NA" : Model.CreatedDate.ToString())
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UpdatedBy)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.UpdatedBy.ToString()) ? "NA" : Model.UpdatedBy)
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UpdatedDate)
+                        </div>
+                        <div class="col-sm-4">
+                            @(String.IsNullOrEmpty(Model.UpdatedDate.ToString()) ? "NA" : Model.UpdatedDate.ToString())
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </div>
+                    <div class="col-sm-4">
+                        @(Model.IsActive == true ? "Active" : "InActive")
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <a asp-action="Index" class="btn btn-success">Back</a>
+                        <input type="submit" value="Delete" class="btn btn-danger pull-right" onclick="return confirm('Are you sure you want to delete this?')" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

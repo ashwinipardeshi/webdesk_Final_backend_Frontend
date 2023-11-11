@@ -1,0 +1,1946 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8001"
+  },
+  "Routes": [
+    //Authenticate API User
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/User/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/User/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/User/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/User/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //Authenticate API ApproveUser
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ApproveUser/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ApproveUser/{everything}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    //Authenticate API ErrorLog
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ErrorLog/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ErrorLog/{everything}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //Authenticate API MenuMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MenuMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MenuMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MenuMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MenuMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //Authenticate API RoleMenuMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/RoleMenuMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RoleMenuMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "PUT" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //Authenticate API RoleMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/RoleMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RoleMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/RoleMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RoleMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //Authenticate API OnlineUser
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineUser/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineUser/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineUser/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineUser/{everything}/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    //Admission Online API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineAdmission/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineAdmission/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineAdmission/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineAdmission/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //Admission Offline API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OfflineAdmission/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OfflineAdmission/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OfflineAdmission/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OfflineAdmission/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //Admission API OfflineAdmissionStudentDetails(Odata) 
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OfflineAdmissionStudentDetails/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OfflineAdmissionStudentDetails/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //Admission API OnlineAdmissionStudentDetails(Odata) 
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineAdmissionStudentDetails/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineAdmissionStudentDetails/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //Admission API OnlineAdmissionConfirmation
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/OnlineAdmissionConfirmation/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/OnlineAdmissionConfirmation/{everything}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    //Admission ErrorLogs API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ErrorLogs/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ErrorLogs/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //Admission AccessDeniedAdmission API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AccessDeniedAdmission/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8004
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AccessDeniedAdmission/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //AcademicYearMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AcademicYearMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AcademicYearMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AcademicYearMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AcademicYearMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ApplicationStatusMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ApplicationStatusMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ApplicationStatusMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ApplicationStatusMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ApplicationStatusMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AcademicStatusMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AcademicStatusMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AcademicStatusMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AcademicStatusMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AcademicStatusMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ApplicationRejectReasons API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ApplicationRejectReasons/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ApplicationRejectReasons/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ApplicationRejectReasons/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ApplicationRejectReasons/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AccreditationMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AccreditationMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AccreditationMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AccreditationMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AccreditationMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AdmissionTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AdmissionTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AdmissionTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AdmissionTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AdmissionTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AdmittedTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AdmittedTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AdmittedTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AdmittedTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AdmittedTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AnnualIncomeGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AnnualIncomeGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AnnualIncomeGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AnnualIncomeGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AnnualIncomeGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AppointmentTypeGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AppointmentTypeGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AppointmentTypeGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AppointmentTypeGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AppointmentTypeGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //BankMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BankMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BankMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BankMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BankMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //BloodGroupGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BloodGroupGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BloodGroupGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BloodGroupGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BloodGroupGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //BoardGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BoardGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BoardGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BoardGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BoardGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //BranchMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BranchMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BranchMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/BranchMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/BranchMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CandidatureTypeGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CandidatureTypeGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CandidatureTypeGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CandidatureTypeGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CandidatureTypeGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CasteGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CasteGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CasteGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CasteGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CasteGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CollegeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CollegeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CollegeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CollegeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CollegeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CountryGMaster API
+    {
+        "DownstreamPathTemplate": "/restapi/v1.0/CountryGMaster/{everything}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 8003
+            }
+        ],
+        "UpstreamPathTemplate": "/gateway/CountryGMaster/{everything}",
+        "UpstreamHttpMethod": [ "GET", "POST" ],
+        "AuthenticationOptions": {
+            "AuthenticationProviderKey": "GatewayAuthenticationKey",
+            "AllowedScopes": []
+        },
+        "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+        "DownstreamPathTemplate": "/restapi/v1.0/CountryGMaster/{everything}/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 8003
+            }
+        ],
+        "UpstreamPathTemplate": "/gateway/CountryGMaster/{everything}/{id}",
+        "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+        "AuthenticationOptions": {
+            "AuthenticationProviderKey": "GatewayAuthenticationKey",
+            "AllowedScopes": []
+        }
+    },
+    //CourseCategoryGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CourseCategoryGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CourseCategoryGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CourseCategoryGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CourseCategoryGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CourseTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CourseTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CourseTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CourseTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CourseTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DepartmentMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DepartmentMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DepartmentMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DepartmentMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DepartmentMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DesignationMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DesignationMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DesignationMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DesignationMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DesignationMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DistrictGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DistrictGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DistrictGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DistrictGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DistrictGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DivisionMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DivisionMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DivisionMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DivisionMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DivisionMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DocumentMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DocumentMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DocumentMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DocumentMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DocumentMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //DomicileGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DomicileGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DomicileGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/DomicileGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/DomicileGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //EmployeeTypeGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/EmployeeTypeGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/EmployeeTypeGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/EmployeeTypeGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/EmployeeTypeGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //EvaluationMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/EvaluationMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/EvaluationMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/EvaluationMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/EvaluationMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ExamTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ExamTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ExamTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ExamTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ExamTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //FeeHeadMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/FeeHeadMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/FeeHeadMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/FeeHeadMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/FeeHeadMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //FeeHeadTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/FeeHeadTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/FeeHeadTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/FeeHeadTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/FeeHeadTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //MinorityDetailsGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MinorityDetailsGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MinorityDetailsGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MinorityDetailsGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MinorityDetailsGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //MinorityGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MinorityGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MinorityGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MinorityGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MinorityGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //MotherTongueGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MotherTongueGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MotherTongueGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/MotherTongueGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/MotherTongueGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ProgramDetailMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramDetailMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramDetailMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramDetailMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramDetailMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ProgramMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ProgramTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ProgramYearMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramYearMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramYearMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ProgramYearMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ProgramYearMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //RelationGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/RelationGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RelationGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/RelationGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/RelationGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ReligionGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ReligionGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ReligionGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ReligionGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ReligionGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ReservationCategoryMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ReservationCategoryMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ReservationCategoryMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ReservationCategoryMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ReservationCategoryMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SeatTypeMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SeatTypeMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SeatTypeMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SeatTypeMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SeatTypeMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SemesterDetailsMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SemesterDetailsMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SemesterDetailsMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SemesterDetailsMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SemesterDetailsMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SemesterGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SemesterGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SemesterGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SemesterGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SemesterGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SMSTemplateMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SMSTemplateMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SMSTemplateMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SMSTemplateMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SMSTemplateMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SMTPConfigMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SMTPConfigMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SMTPConfigMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SMTPConfigMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SMTPConfigMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //StateGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StateGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StateGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StateGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StateGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //StreamMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StreamMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StreamMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StreamMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StreamMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //StudyMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StudyMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StudyMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/StudyMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/StudyMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SubCasteGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SubCasteGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SubCasteGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SubCasteGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SubCasteGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SyllabusPatternMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SyllabusPatternMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SyllabusPatternMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SyllabusPatternMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SyllabusPatternMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //TalukaGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/TalukaGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/TalukaGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/TalukaGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/TalukaGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //TimeSlotGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/TimeSlotGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/TimeSlotGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/TimeSlotGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/TimeSlotGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //HandicapTypeGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/HandicapTypeGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/HandicapTypeGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/HandicapTypeGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/HandicapTypeGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CommonSubjectListGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CommonSubjectListGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CommonSubjectListGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CommonSubjectListGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CommonSubjectListGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CasteCategoryGMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CasteCategoryGMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CasteCategoryGMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CasteCategoryGMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CasteCategoryGMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //ModeOfAdmissionMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ModeOfAdmissionMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ModeOfAdmissionMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ModeOfAdmissionMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ModeOfAdmissionMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //AllotmentCategoryMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AllotmentCategoryMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AllotmentCategoryMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AllotmentCategoryMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AllotmentCategoryMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //CommonMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/Common/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Common/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/Common/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Common/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/Common/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Common/{everything}/{cid}/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //Admission AccessDeniedMaster API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AccessDeniedMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8003
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AccessDeniedMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //SaaS API CollegeModule
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CollegeModule/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CollegeModule/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/CollegeModule/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/CollegeModule/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SaaS API ModuleMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ModuleMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ModuleMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/ModuleMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/ModuleMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //SaaS API SaasErrorLog
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SaasErrorLog/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SaasErrorLog/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //SaaS API SubscriptionMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SubscriptionMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SubscriptionMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SubscriptionMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SubscriptionMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    //Admission AccessDeniedSaaS API
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/AccessDeniedSaaS/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/AccessDeniedSaaS/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    //SaaS API SaasUserMaster
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SaasUserMaster/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SaasUserMaster/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/restapi/v1.0/SaasUserMaster/{everything}/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8006
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/SaasUserMaster/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    }
+  ]
+}

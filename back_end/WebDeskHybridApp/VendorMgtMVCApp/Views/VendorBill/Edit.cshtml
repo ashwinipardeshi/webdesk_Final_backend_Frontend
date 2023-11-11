@@ -1,0 +1,323 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorBillVM
+<script>
+    $(document).ready(function () {
+        var finalBillCheckbox = $("#FinalBill");
+        var advanceBillCheckbox = $("#AdvanceBill");
+        var labelForFinalBill = $("label[for='FinalBill']");
+        var labelForCgst = $("label[for='Cgst']");
+        var cgstControl = $("#Cgst");
+        var labelForSgst = $("label[for='Sgst']");
+        var igstControl = $("#Igst");
+        var labelForIgst = $("label[for='Igst']");
+        var sgstControl = $("#Sgst");
+        var labelForUgst = $("label[for='Ugst']");
+        var ugstControl = $("#Ugst");
+        var div1 = $("#div1");
+        var div2 = $("#div2");
+        var div3 = $("#div3");
+        var labelForGsttotal = $("label[for='Gsttotal']");
+        var gsttotalControl = $("#Gsttotal");
+
+        finalBillCheckbox.on("change", function () {
+            if (finalBillCheckbox.is(":checked")) {
+                advanceBillCheckbox.prop("checked", false);
+            }
+        });
+
+        advanceBillCheckbox.on("change", function () {
+            if (advanceBillCheckbox.is(":checked")) {
+                finalBillCheckbox.prop("checked", false);
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Get references to the "Final Bill" checkbox and the label & "Cgst" control
+        var finalBillCheckbox = $("#FinalBill");
+        var advanceBillCheckbox = $("AdvanceBill");
+        var labelForFinalBill = $("label[for='FinalBill']");
+        var labelForCgst = $("label[for='Cgst']");
+        var cgstControl = $("#Cgst");
+        var labelForSgst = $("label[for='Sgst']");
+        var igstControl = $("#Igst");
+        var labelForIgst = $("label[for='Igst']");
+        var sgstControl = $("#Sgst");
+        var labelForUgst = $("label[for='Ugst']");
+        var ugstControl = $("#Ugst");
+        var div1 = $("#div1");
+        var div2 = $("#div2");
+        var div3 = $("#div3");
+        var labelForGsttotal = $("label[for='Gsttotal']");
+        var gsttotalControl = $("#Gsttotal");
+
+        cgstControl.hide();
+        labelForCgst.hide();
+        sgstControl.hide();
+        labelForSgst.hide();
+        ugstControl.hide();
+        labelForUgst.hide();
+        igstControl.hide();
+        labelForIgst.hide();
+        gsttotalControl.hide();
+        labelForGsttotal.hide();
+        div1.hide();
+        div2.hide();
+        div3.hide()
+
+        // Attach an event handler to the "Final Bill" checkbox's change event
+        finalBillCheckbox.on("change", function () {
+            if (finalBillCheckbox.is(":checked")) {
+                // If "Final Bill" is checked, hide the label and the "Cgst" control
+                cgstControl.show();
+                labelForCgst.show();
+                sgstControl.show();
+                labelForSgst.show();
+                ugstControl.show();
+                labelForUgst.show();
+                igstControl.show();
+                labelForIgst.show();
+                gsttotalControl.show();
+                labelForGsttotal.show();
+                div1.show();
+                div2.show();
+                div3.show();
+            } else {
+                // If "Final Bill" is unchecked, show the label and the "Cgst" control
+                cgstControl.hide();
+                labelForCgst.hide();
+                sgstControl.hide();
+                labelForSgst.hide();
+                ugstControl.hide();
+                labelForUgst.hide();
+                igstControl.hide();
+                labelForIgst.hide();
+                gsttotalControl.hide();
+                labelForGsttotal.hide();
+                div1.hide();
+                div2.hide();
+                div3.hide();
+            }
+        });
+    });
+</script>
+
+<section class="content-header">
+    <h1>
+        Edit Vendor Bill
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Edit Vendor Bill</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box box-info">
+                <form asp-action="Edit" class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="box-body">
+                        @if (ViewBag.Msg != null)
+                        {
+                            <div class="alert alert-warning alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-check"></i> @ViewBag.Msg</h4>
+                            </div>
+                        }
+                        @if (ViewBag.Err != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> @ViewBag.Err</h4>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <input asp-for="FinalBill" /> @Html.LabelFor(model => model.FinalBill,htmlAttributes: new { @class = "dark-label" })
+                                @Html.ValidationMessageFor(model => model.FinalBill, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-2">
+                                <strong><input asp-for="AdvanceBill" /></strong> @Html.LabelFor(model => model.AdvanceBill,htmlAttributes: new { @class = "dark-label" })
+                                @Html.ValidationMessageFor(model => model.AdvanceBill, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.VendorMasterId,"VENDOR NAME", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                <select asp-for="VendorMasterId" class="form-control select2" asp-items="ViewBag.VendorMasterId"></select>
+                                @Html.ValidationMessageFor(model => model.VendorMasterId, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.VendorMasterId,"BANK NAME", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                <select asp-for="VendorMasterId" class="form-control select2" asp-items="ViewBag.VendorMasterId"></select>
+                                @Html.ValidationMessageFor(model => model.VendorMasterId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BillNo,"BILL NUMBER", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.BillNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BillNo, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.BillDate, "BILL DATE", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>             
+                                    @Html.TextBoxFor(model => model.BillDate, new { @class = "form-control datepicker", autocomplete = "off" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.InwardNo,"INWARD NUMBER", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.InwardNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.InwardNo, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.InwardDate, "INWARD DATE", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.InwardDate, new { @class = "form-control datepicker", autocomplete = "off", data_date_orientation = "bottom" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BasicBillAmount,"BASIC BILL AMOUNT", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.BasicBillAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BasicBillAmount, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.AdvanceAmountGiven,"ADVANCE AMOUNT", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.AdvanceAmountGiven, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdvanceAmountGiven, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="div1">
+                            @Html.LabelFor(model => model.Cgst,"CGST", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Cgst, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Cgst, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Sgst,"SGST", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Sgst, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Sgst, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="div2">
+                            @Html.LabelFor(model => model.Igst,"IGST", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Igst, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Igst, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Ugst,"UGST", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Ugst, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Ugst, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="div3">
+                            @Html.LabelFor(model => model.Gsttotal,"GST TOTAL", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Gsttotal, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Gsttotal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TotalBillAmount,"TOTAL BILL AMOUNT", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.TotalBillAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TotalBillAmount, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Advance,"ADVANCE",  htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Advance,new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Advance, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Balance,"BALANCE", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Balance, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Tds,"TDS in %", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Tds, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tds, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Section,"SECTION", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Section, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Section, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Tdsamount,"TDS AMOUNT", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Tdsamount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tdsamount, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SecurityDeposite,"SECURITY DEPOSITE", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.SecurityDeposite, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SecurityDeposite, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.OtherRecovery,"OTHER RECOVERY", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.OtherRecovery, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OtherRecovery, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Tan,"TAN", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Tan, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tan, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.FinalPayableAmount,"FINAL PAYABLE AMOUNT", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.FinalPayableAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FinalPayableAmount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DebitAccountNumberId,"DEBIT ACCOUNT NO", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                <select asp-for="DebitAccountNumberId" class="form-control select2" asp-items="ViewBag.DebitAccountNumberId"></select>
+                                @Html.ValidationMessageFor(model => model.DebitAccountNumberId, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.Remark,"REMARK", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <strong><input asp-for="IsActive" checked="checked" /></strong> @Html.DisplayNameFor(model => model.IsActive)
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <a asp-action="Index" class="btn btn-success">Back</a>
+                        <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

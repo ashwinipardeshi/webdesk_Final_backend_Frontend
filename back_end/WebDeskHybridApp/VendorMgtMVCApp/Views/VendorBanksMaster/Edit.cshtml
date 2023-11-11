@@ -1,0 +1,96 @@
+﻿@model VendorMgtMVCApp.ViewModels.VendorBanksMasterVM
+
+<section class="content-header">
+    <h1>
+        Edit Vendor Banks Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Masters</a></li>
+        <li class="active">Edit Vendor Banks Master</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box box-info">
+                <form asp-action="Edit" class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="box-body">
+                        @if (ViewBag.Msg != null)
+                        {
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-check"></i> @ViewBag.Msg</h4>
+                            </div>
+                        }
+                        @if (ViewBag.Err != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> @ViewBag.Err</h4>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label asp-for="Name" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <label asp-for="BranchName" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="BranchName" class="form-control" />
+                                <span asp-validation-for="BranchName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VendorMasterId" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <select asp-for="VendorMasterId" class="form-control select2" asp-items="ViewBag.VendorMasterOptions"></select>
+                            </div>
+                            <label asp-for="AccountName" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="AccountName" class="form-control" />
+                                <span asp-validation-for="AccountName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="AccountType" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <select asp-for="AccountType" class="form-control">
+                                    <option value="Saving">Saving</option>
+                                    <option value="Current">Current</option>
+                                </select>
+                                <span asp-validation-for="AccountType" class="text-danger"></span>
+                            </div>
+                            <label asp-for="AccountNo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="AccountNo" class="form-control" />
+                                <span asp-validation-for="AccountNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Ifsccode" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                <input asp-for="Ifsccode" class="form-control" />
+                                <span asp-validation-for="Ifsccode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                                    <input asp-for="IsActive" checked="checked" /> @Html.DisplayNameFor(model => model.IsActive)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <a asp-action="Index" class="btn btn-success">Back</a>
+                        <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
